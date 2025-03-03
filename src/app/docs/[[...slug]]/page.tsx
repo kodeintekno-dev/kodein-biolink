@@ -9,10 +9,14 @@ import { notFound } from "next/navigation";
 import defaultMdxComponents from "fumadocs-ui/mdx";
 import { TableOfContents } from "fumadocs-core/server";
 
+type MDXProps = {
+  components: Record<string, React.ComponentType>;
+};
+
 type PageData = {
   title: string;
   description: string;
-  body: React.ComponentType<any>;
+  body: React.ComponentType<MDXProps>;
   toc?: TableOfContents;
   full?: boolean;
 };
