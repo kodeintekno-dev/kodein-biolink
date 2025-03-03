@@ -1,57 +1,74 @@
-"use client";
-
-import Head from "next/head";
 import { source } from "@/lib/source";
+import { JSX } from "react";
 import {
   DocsPage,
   DocsBody,
   DocsDescription,
   DocsTitle,
 } from "fumadocs-ui/page";
-import defaultMdxComponents from "fumadocs-ui/mdx";
 import { notFound } from "next/navigation";
-import { ComponentType } from "react";
+import defaultMdxComponents from "fumadocs-ui/mdx";
+import { TableOfContents } from "fumadocs-core/server";
 
-type MDXProps = {
-  components: Record<string, ComponentType<any>>;
-};
-
-type PageData = {
-  title: string;
-  description: string;
-  body: ComponentType<MDXProps>;
-  toc?: any;
-  full?: boolean;
-};
-
-export default function Page({ params }: { params: { slug?: string[] } }) {
-  const slug = params.slug || [];
-
-  const page = source.getPage(slug) as { data: PageData } | null;
-
-  if (!page?.data) return notFound();
-
-  const { title, description, body, toc, full } = page.data;
-  const MDX = body;
+export default async function Page(props: {
+  params: Promise<{ slug?: string[] }>;
+}) {
+  const params = await props.params;
+  const page:
+    | {
+        data: {
+          body: React.ReactNode;
+          toc: unknown;
+          full: unknown;
+          title: string;
+          description: string;
+        };
+      }
+    | null
+    | undefined = source.getPage(params.slug);
+  if (!page) notFound();
+  const MDX = page.data.body as unknown as (props: {
+    components: typeof defaultMdxComponents;
+  }) => JSX.Element;
 
   return (
-    <>
-      <Head>
-        <title>{title}</title>
-        <meta name="description" content={description} />
-      </Head>
-
-      <DocsPage toc={toc} full={full}>
-        <DocsTitle>{title}</DocsTitle>
-        <DocsDescription>{description}</DocsDescription>
-        <DocsBody>
-          <MDX
-            components={
-              defaultMdxComponents as Record<string, ComponentType<any>>
-            }
-          />
-        </DocsBody>
-      </DocsPage>
-    </>
+    <DocsPage
+      toc={page.data.toc as TableOfContents | undefined}
+      full={page.data.full as boolean | undefined}
+    >
+      <DocsTitle>{page.data.title}</DocsTitle>
+      <DocsDescription>{page.data.description}</DocsDescription>
+      <DocsBody>
+        <MDX components={{ ...defaultMdxComponents }} />
+      </DocsBody>
+    </DocsPage>
   );
+}
+
+export async function generateStaticParams() {
+  return source.generateParams();
+}
+
+export async function generateMetadata(props: {
+  params: Promise<{ slug?: string[] }>;
+}) {
+  const params = await props.params;
+  const page:
+    | {
+        data: {
+          body: React.ReactNode;
+          toc: unknown;
+          full: unknown;
+          title: string;
+          description: string;
+        };
+      }
+    | null
+    | undefined = source.getPage(params.slug);
+  if (!page) notFound();
+
+  return {
+    title: page.data.title,
+    description: page.data.description,
+  };
 }
