@@ -1,26 +1,34 @@
-import { source } from '@/lib/source';
+import { source } from "@/lib/source";
 import {
   DocsPage,
   DocsBody,
   DocsDescription,
   DocsTitle,
-} from 'fumadocs-ui/page';
-import { notFound } from 'next/navigation';
-import defaultMdxComponents from 'fumadocs-ui/mdx';
+} from "fumadocs-ui/page";
+import { notFound } from "next/navigation";
+import defaultMdxComponents from "fumadocs-ui/mdx";
 
-export default async function Page(props: {
-  params: Promise<{ slug?: string[] }>;
-}) {
+type PageData = {
+  title: string;
+  description: string;
+  body: any;
+  toc?: any;
+  full?: boolean;
+};
+
+export default async function Page(props: { params: { slug?: string[] } }) {
   const params = await props.params;
-  const page = source.getPage(params.slug);
-  if (!page) notFound();
+  const page = source.getPage(params.slug) as { data: PageData } | null;
 
-  const MDX = page.data.body;
+  if (!page?.data) notFound();
+
+  const { title, description, body, toc, full } = page.data;
+  const MDX = body;
 
   return (
-    <DocsPage toc={page.data.toc} full={page.data.full}>
-      <DocsTitle>{page.data.title}</DocsTitle>
-      <DocsDescription>{page.data.description}</DocsDescription>
+    <DocsPage toc={toc} full={full}>
+      <DocsTitle>{title}</DocsTitle>
+      <DocsDescription>{description}</DocsDescription>
       <DocsBody>
         <MDX components={{ ...defaultMdxComponents }} />
       </DocsBody>
@@ -32,12 +40,11 @@ export async function generateStaticParams() {
   return source.generateParams();
 }
 
-export async function generateMetadata(props: {
-  params: Promise<{ slug?: string[] }>;
-}) {
+export async function generateMetadata(props: { params: { slug?: string[] } }) {
   const params = await props.params;
-  const page = source.getPage(params.slug);
-  if (!page) notFound();
+  const page = source.getPage(params.slug) as { data: PageData } | null;
+
+  if (!page?.data) notFound();
 
   return {
     title: page.data.title,
