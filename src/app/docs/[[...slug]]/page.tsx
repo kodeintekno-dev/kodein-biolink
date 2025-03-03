@@ -7,12 +7,13 @@ import {
 } from "fumadocs-ui/page";
 import { notFound } from "next/navigation";
 import defaultMdxComponents from "fumadocs-ui/mdx";
+import { TableOfContents } from "fumadocs-core/server";
 
 type PageData = {
   title: string;
   description: string;
-  body: any;
-  toc?: any;
+  body: React.ComponentType<any>;
+  toc?: TableOfContents;
   full?: boolean;
 };
 
