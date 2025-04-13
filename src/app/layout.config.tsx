@@ -13,15 +13,8 @@ export const baseOptions: BaseLayoutProps = {
     title: (
       <>
         <Image src="/logo.svg" alt="logo" width={32} height={32} />
-        <span> Kodein Kilat</span>
+        <span>Kodein Project</span>
       </>
     ),
   },
-  links: [
-    {
-      text: "Documentation",
-      url: "/docs",
-      active: "nested-url",
-    },
-  ],
 };

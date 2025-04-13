@@ -1,3 +1,4 @@
+import { BodyWrapper } from "@/components/BodyWrapper";
 import "./global.css";
 import { RootProvider } from "fumadocs-ui/provider";
 import { Inter } from "next/font/google";
@@ -8,16 +9,19 @@ const inter = Inter({
 });
 
 export const metadata = {
-  title: "Kodein Kilat",
-  description: "Belajar dan Praktek membuat website secepat kilat",
+  title: "Kodein Project",
+  description: "Belajar dan Praktek membuat website dengan kodein",
+  icons: {
+    icon: "/kodein.ico",
+  },
 };
 
 export default function Layout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className={inter.className} suppressHydrationWarning>
-      <body className="flex flex-col min-h-screen">
+      <BodyWrapper>
         <RootProvider>{children}</RootProvider>
-      </body>
+      </BodyWrapper>
     </html>
   );
 }
