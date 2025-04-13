@@ -1,0 +1,146 @@
+---
+title: Step 5 - Link Sosmed
+description: Menambahkan tombol link sosial media ke halaman Link Bio.
+---
+
+## Menambahkan Tombol Sosial Media
+
+Pada langkah ini, kita akan menambahkan tombol link sosial media ke halaman Link Bio kamu.
+
+### 🔧 Tambahkan Kode HTML
+
+1. Buka file `index.html`.
+2. Salin kode berikut dan tempelkan di dalam `<body>` setelah bagian sebelumnya (misalnya setelah nama dan deskripsi):
+
+```html
+<div class="sosmed-links">
+  <!-- Masukan Tombol Link Sosmed Di sini -->
+</div>
+```
+
+3.  Setelah itu, tambahkan link sosial media satu per satu di dalam tag `<div class="sosmed-links">` yang sudah disalin sebelumnya.
+    Berikut adalah contoh kode untuk setiap tombol link sosial media.
+
+- 📺 Link ke YouTube
+
+```html
+<a
+  href="https://www.youtube.com/@kartonobinsaleh"
+  class="sosmed"
+  target="_blank"
+>
+  <img src="./assets/youtube.svg" alt="youtube icon" class="sosmed-icon" />
+  Youtube
+  <div class="arrow">
+    <img src="./assets/arrow.svg" alt="arrow icon" />
+  </div>
+</a>
+```
+
+- 💬 Link ke WhatsApp
+
+```html
+<a href="https://wa.me/628170270241" class="sosmed" target="_blank">
+  <img src="./assets/whatsapp.svg" alt="whatsapp icon" class="sosmed-icon" />
+  Whatsapp
+  <div class="arrow">
+    <img src="./assets/arrow.svg" alt="arrow icon" />
+  </div>
+</a>
+```
+
+- 📸 Link ke Instagram
+
+```html
+<a
+  href="https://www.instagram.com/kartonobinsaleh/"
+  class="sosmed"
+  target="_blank"
+>
+  <img src="./assets/instagram.svg" alt="instagram icon" class="sosmed-icon" />
+  Instagram
+  <div class="arrow">
+    <img src="./assets/arrow.svg" alt="arrow icon" />
+  </div>
+</a>
+```
+
+- 📘 Link ke Facebook
+
+```html
+<a href="" class="sosmed">
+  <img src="./assets/facebook.svg" alt="facebook icon" class="sosmed-icon" />
+  Facebook
+  <div class="arrow">
+    <img src="./assets/arrow.svg" alt="arrow icon" />
+  </div>
+</a>
+```
+
+> Setelah menambahkan setiap link sosial media di atas, kamu dapat mengganti URL dan ikon gambar sesuai dengan akun sosial media yang kamu miliki.
+
+---
+
+### 🎨 Tambahkan Kode CSS
+
+Sekarang buka kembali file `style.css` dan tambahkan kode berikut untuk mendesain tampilan tombol-tombol tersebut:
+
+```css
+.sosmed {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+  color: #232227;
+  padding: 10px 15px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+  transition: 0.3s;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.sosmed-icon {
+  width: 50px;
+}
+
+.arrow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #eff2f6;
+  padding: 10px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
+.arrow img {
+  width: 16px;
+  height: 16px;
+}
+
+.sosmed:hover {
+  background-color: #01df94;
+  color: white;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.sosmed-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+```
+
+---
+
+Dengan kode CSS ini, tombol link sosial media akan memiliki desain yang rapi dan responsif. Setiap tombol akan menampilkan ikon yang sesuai dan animasi saat dihover.
+
+---
+
+🚀 Siap Tayang?
+Selamat! Kamu telah berhasil menambahkan tombol-tombol sosial media ke halaman Link Bio kamu.
+
+👉 Langkah selanjutnya adalah mempublikasikan halaman Link Bio kamu ke internet menggunakan **GitHub Pages**.

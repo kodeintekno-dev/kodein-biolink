@@ -1,0 +1,47 @@
+---
+title: Step 4 - Nama dan deskripsi
+description: Menambahkan nama pengguna dan deskripsi singkat pada halaman Link Bio.
+---
+
+## Menambahkan Nama dan Deskripsi Profil
+
+Pada langkah ini, kita akan melengkapi profil dengan **nama pengguna** dan **deskripsi singkat**.
+
+### 🔧 Tambahkan Kode HTML
+
+Buka kembali file `index.html`, lalu tambahkan elemen `<h1>` dan `<p>` **di dalam tag `<main>`**, setelah tag `<img>`:
+
+```html
+<main>
+  <img src="./assets/avatar-1.webp" alt="avatar image" class="avatar" />
+
+  <--! Tambahkan kode dibawah -->
+  <h1>Budi Santoso</h1>
+  <p>Hai! Semua akun sosial mediaku ada di sini.<br />Jangan lupa follow ya!</p>
+</main>
+```
+
+💡 Ganti `Budi Santoso` dengan nama kamu, dan ubah deskripsinya sesuai dengan gaya kamu.
+
+### 🎨 Tambahkan Kode CSS
+
+Selanjutnya, buka kembali file `style.css`, lalu tambahkan kode berikut untuk mengatur **warna teks** pada elemen `<h1>` dan `<p>`:
+
+Tambahkan di bawah style `.avatar`
+
+```css
+h1,
+p {
+  color: white;
+}
+```
+
+Dengan langkah ini, tampilan halaman `Link Bio` kamu kini menampilkan:
+
+- `Avatar` profil
+
+- `Nama` pengguna
+
+- `Deskripsi` singkat dengan teks berwarna putih
+
+Selanjutnya, kita akan mulai menambahkan tautan **sosial media** agar pengunjung bisa langsung mengakses semua akun kamu. 🔗✨

@@ -1,0 +1,60 @@
+---
+title: Step 3 - Avatar
+description: Menambahkan avatar dan styling-nya ke halaman Link Bio.
+---
+
+## Menambahkan Avatar
+
+Selanjutnya, kita akan menambahkan avatar sebagai bagian dari tampilan profil di halaman Link Bio kamu.
+
+### 🔧 Tambahkan Kode HTML
+
+Edit kembali file `index.html` kamu. Sebelumnya bagian `<body>` masih kosong, sekarang tambahkan kode berikut ke dalam `<body>`:
+
+`<body>`
+
+```html
+<main>
+  <img src="./assets/avatar-1.webp" alt="avatar image" class="avatar" />
+</main>
+```
+
+`</body>`
+
+**Catatan**: Kamu bebas mengganti `avatar-1.webp` dengan salah satu dari 5 gambar avatar yang sudah disediakan di folder `assets`.
+
+📁 Berikut adalah daftar nama `file` avatarnya:
+
+- `avatar-1.webp`
+- `avatar-2.webp`
+- `avatar-3.webp`
+- `avatar-4.webp`
+- `avatar-5.webp`
+
+---
+
+### 🎨 Tambahkan Kode CSS
+
+Selanjutnya, buka file `style.css` dan tambahkan kode berikut untuk mengatur tampilan elemen `<main>` dan gambar avatarmu:
+
+Tambahkan di bawah style `body {}`
+
+```css
+main {
+  text-align: center;
+  width: 90%;
+  max-width: 400px;
+}
+
+.avatar {
+  width: 100px;
+  border-radius: 50%;
+}
+```
+
+Dengan kode CSS ini:
+
+- Elemen `<main>` akan berada di tengah layar dengan **lebar maksimum** `400px`
+- Gambar `avatar` akan tampil dengan lebar `100px` dan bentuk lingkaran
+
+Jika sudah selesai, kita akan lanjutkan ke step berikutnya untuk menambahkan nama pengguna dan deskripsi profil. 🚀

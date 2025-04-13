@@ -1,0 +1,66 @@
+---
+title: Step 2 - Struktur Dasar
+description: Menyiapkan file `index.html` dengan kode dasar untuk memulai pembuatan website Link Bio.
+---
+
+## Menyiapkan Struktur HTML
+
+Setelah melakukan persiapan, kamu akan melihat file `index.html` di dalam project yang sudah diimpor. Template project ini sudah menyediakan file `index.html` yang hanya berisi satu komentar. Sekarang, saatnya untuk menyalin kode HTML pertama.
+
+1. Buka file `index.html` yang ada di dalam project.
+2. Hapus komentar yang ada di dalam file tersebut.
+3. Salin dan tempelkan kode HTML berikut di dalam file `index.html`:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="./assets/favicon.ico" type="image/x-icon" />
+    <title>Budi</title>
+    <!-- Ganti "Budi" dengan nama kamu -->
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+
+  <body></body>
+</html>
+```
+
+Note: Jangan lupa untuk mengganti teks pada tag `<title>` sesuai dengan nama kamu atau sesuai dengan nama website yang kamu inginkan.
+
+## Mengisi Kode CSS
+
+Setelah menyiapkan struktur HTML di index.html, langkah berikutnya adalah mengisi kode CSS di dalam file `style.css`. File `style.css` sudah disediakan dalam template project, jadi sekarang tinggal mengisi kode CSS yang diperlukan.
+
+- Buka file `style.css` yang ada di dalam project.
+- Salin dan tempelkan kode CSS berikut di dalam file `style.css`:
+
+```css
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: gainsboro;
+  background-image: url("./assets/background-2.webp");
+  background-size: cover;
+}
+```
+
+**Catatan**: Di dalam folder assets, sudah tersedia 4 gambar latar belakang yang dapat kamu pilih sesuai dengan selera.
+
+Jika kamu ingin mengganti latar belakang, cukup ganti URL pada properti background-image dengan salah satu gambar yang tersedia, seperti contoh berikut:
+
+```css
+background-image: url("./assets/background-2.webp");
+```
+
+Atau jika kamu ingin mencoba gambar latar belakang yang lain, pilih salah satu dari berikut:
+
+- `background-2.webp`
+- `background-3.webp`
+- `background-4.webp`
+- `background-5.webp`
